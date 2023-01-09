@@ -131,19 +131,21 @@ These details can be seen in the following figure:
 <img src="./notebooks/images/Modelo_KMeans_Clustering.png" alt="drawing" align="center" width="650"/> 
 </p>
 
-### 2.5 MMODELS USED FOR THE ANALYSIS OF COEFFICIENTS AND DIRECTION
+### 2.5 MODELS USED FOR THE ANALYSIS OF COEFFICIENTS AND DIRECTION
 The following models have been used:
 
 **Panel Data models (regression)**
 * **Why?** : they are suitable white box algorithms for n individuals (countries), where the individuals and the variables “x” (SDGs) and “y” (“climate change and energy transition”) remain the same over time.
-* **ADVANTAGES**: reduces collinearity, captures unobservable heterogeneity, reflects Granger dynamics and causality (cause-effect), etc. The following models have been used within this category:
+* **ADVANTAGES**: reduces collinearity, captures unobservable heterogeneity, reflects Granger dynamics and causality (cause-effect), etc. 
+
+The following models have been used within this category:
 * **Pooled Regression**
 * **Fixed Effects (FE)**
 * **Random Effects (RE)**
 
 In our case, the **homoscedasticity** and **non-autocorrelation** conditions are violated, so Pooled Regression is not recommended. Conditions have been tested with a number of different tests. For the **homoscedasticity** condition, graphical analysis is used. For **heteroskedasticity** condition, the **White** and **Breusch-Pagan** tests were used. For the **non-autocorrelation** condition, a **Durbin-Watson** test was performed.
 
-Finally, we concluded the **Fixed Effects model** was the most appropriate after performing the **Hausman** test. In this case, the dependent variable has been logarithmically transformed. This means, if the coefficient of the dependent variable was significant and had a value of 0.198, for each increase of one unit in the independent variable, our dependent variable would increase by approximately 21.9% %, calculated as (e^0.198) – 1) * 100 = 21.9%.
+Finally, we concluded the **Fixed Effects model was the most appropriate** after performing the **Hausman** test. In this case, the dependent variable has been logarithmically transformed. This means, if the coefficient of the dependent variable was significant and had a value of 0.198, for each increase of one unit in the independent variable, our dependent variable would increase by approximately 21.9% %, calculated as (e^0.198) – 1) * 100 = 21.9%.
          
 The statistically significant coefficients are shown in the following figure:
 <p align="center">
@@ -173,7 +175,7 @@ It is feasible to make models to predict “climate change and energy transition
 * The importance of the **industrial "agglomeration", technological cluster, etc**.
 
 **SDG12 "Responsible Production and Consumption"** and **SDG13 "Climate Action"**, they are opposed both with "climate change and energy transition". This implies:
-* The need to **decouple SDG 12 and SDG 13 from the prevailing socioeconomic and environmental model**, which is based on legacy systems of production and consumption supported by fossil fuels. Examples: the global plastic production rate based on fossil fuels; petro-states and fossil fuel subsidies.
+* **The need to decouple SDG 12 and SDG 13 from the prevailing socioeconomic and environmental model**, which is based on legacy systems of production and consumption supported by fossil fuels. Examples: the global plastic production rate based on fossil fuels; petro-states and fossil fuel subsidies.
 * **False hypocrisy"**: countries can invest in "energy transition" and to be polluting much more with fossil fuels in the net balance.
 
 # 3. Bibliography
@@ -186,4 +188,4 @@ It is feasible to make models to predict “climate change and energy transition
 * *Sachs, J., Schmidt-Traub, G., Kroll, C., Lafortune, G., & Fuller, G. 2020. The sustainable development goals and COVID-19. Sustainable development report 2020. Cambridge: Cambridge University Press.*
 
 
-I hope you like it, thanks!.
+*I hope you like it, thanks!*.
