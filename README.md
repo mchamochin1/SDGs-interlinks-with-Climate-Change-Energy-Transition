@@ -12,7 +12,7 @@ The set of 17 SDGs is considered one of the most effective frameworks for transl
 We focus the analysis on data from **137 countries** worldwide for the years **2017, 2018, 2019 and 2020**, on which we will mainly analyse the **17 SDGs** in their relationship with **climate change and the energy transition (9,384 observations)**. How data is used:
 
 * The ranking of these 137 countries according to the **[17 SDGs of the 2020 Sustainable Development Report](https://unstats.un.org/sdgs/dataportal) (Sachs et al., 2020)**.
-* According to the **International Energy Agency**, renewable energy contributes 80% to climate change and the energy transition. Therefore, investment in renewable energy (RE) in greenfield projects is used as the study variable, and we use **renewable non-hydroelectric generation per capita in units of kWh/capita as a proxy**. This measure is widely used in the literature *(Baldwin, Carley, Brass, & MacLean, 2016; Carley, 2009; Romano & Scandurra, 2014; Romano, Scandurra, Carfora, & Fodor, 2017)*. The data comes from the database of the [International Energy Agency](https://www.iea.org/data-and-statistics)**.
+* According to the **International Energy Agency**, renewable energy contributes 80% to climate change and the energy transition. Therefore, investment in renewable energy (RE) in greenfield projects is used as the study variable, and we use **renewable non-hydroelectric generation per capita in units of kWh/capita as a proxy**. This measure is widely used in the literature *(Baldwin, Carley, Brass, & MacLean, 2016; Carley, 2009; Romano & Scandurra, 2014; Romano, Scandurra, Carfora, & Fodor, 2017)*. The data comes from the database of the **[International Energy Agency](https://www.iea.org/data-and-statistics)**.
 * Three possible **qualitative variables: country, region, and country level of development** as defined by the [World Bank's World Development Indicators (WDI) database](https://databank.bancomundial.org/source/world-development-indicators).
 
 # 2.- Machine Learning Workflow
@@ -35,7 +35,7 @@ The models that have been used for each of these tasks are the following:
 #### 2.1.2 Segmentation
 * KMeans Clustering models
 
-#### 2.1.3 Analysis of Coefficients and direction
+#### 2.1.3 Analysis of Coefficients and Direction
 * Linear Polynomial Regression models 
 * Support Vector Regression model
 * Decision Trees Regression model
@@ -54,9 +54,11 @@ Given the extensiveness of the project, the most relevant data and graphs are sh
 1. **Balanced Data**: The target variable in the classification analysis is balanced. The target variable "renewable non-hydroelectric generation per capita" is dichotomized with the median, to differentiate "wealthy" countries (target value 1) that have greater investment in renewables than "unwealthy" countries (target value 0). Note: in the regression analysis this variable is used in its continuous form.
 2. **Correlations**: SDG15, SDG14 and SDG17 variables present a correlation < 0.2 with the target variables. Tests are carried out to eliminate them without significant improvement, and it is decided to keep them to see the interactions with the other SDGs. The SDGs with the highest correlation with the target variable are SDG9 = 0.46, SDG16 = 0.45, and SDG12 = -0.44. They are not considered very high. 
 3. **Plots**: significant effects are detected between wealthy vs. unwealthy countries with some of the dependent variables in the classification. SDG1, SDG3, SDG4, SDG7, SDG9 and SDG16 variables present more wealthy countries for their higher values, while SDG13 and SDG3 variables present more wealthy countries in their lower values.
+
 <p align="center">
 <img src="./notebooks/images/SDGs_en_Wealthy_Countries.png" alt="drawing" align="center" width="900"/>
 </p>
+
 4. **Data**: ranking and score data of the SDGs are collected for the different years. Scores present better data and capture the continuity of each of the SDGs.
 5. **Skewness**: data does not show high Skewness. Logarithmic transformations are performed, not presenting substantial improvement except in some variables, where logarithmic transformation was performed.
 6. **Data escalation**: StandardScaler is applied in the clustering algorithms, ensembles and with the PCAs.
@@ -68,113 +70,112 @@ Given the extensiveness of the project, the most relevant data and graphs are sh
 **Pipeline PCA RandomForest Regression model**
 * Train Split 2021 Coefficient of Determination: 0.83
 * Test Split 2021 Coefficient of Determination: 0.92
-Only 80% of the year 2021 has passed by train. It generalizes with the other years:
+Only 80% of the year 2021 was used to train. It generalizes well with the remaining years:
 * Test 2017 Coefficient of Determination: 0.79
 * Test 2018 Coefficient of Determination: 0.76
 * Test 2020 Coefficient of Determination: 0.78
 
-**Modelo Pipeline PCA DecissionTree Regression**
-* Train Split 2021 Coeficiente de determinación: 1.0
-* Test Split 2021 Coeficiente de determinación: 0.9484216064860829
-Se les ha pasado en train tan sólo un 80% del año 2021. Generaliza bien en el 2021, y no adecuadamente con el resto de los años:
-* Test 2017 Coeficiente de determinación: 0.16880688640442043
-* Test 2018 Coeficiente de determinación: 0.15043052018990943
-* Test 2020 Coeficiente de determinación: 0.1906215686369176
+**Pipeline PCA DecisionTree Regression model**
+* Train Split 2021 Coefficient of Determination: 1.0
+* Test Split 2021 Coefficient of Determination: 0.94
+* Test Split 2021 Determination coefficient: 0.94
+Only 80% of the year 2021 was used to train. It generalizes well with the 2021 year, and not adequately with the other years:
+* Test 2017 Coefficient of Determination: 0.16
+* Test 2018 Coefficient of Determination: 0.15
+* Test 2020 Coefficient of Determination: 0.19
 
-**Modelo Pipeline PCA XGBRegressor Regression**
-* Train Split 2021 Coeficiente de determinación: 0.98
-* Test Split 2021 Coeficiente de determinación: 0.91
-Se les ha pasado en train tan sólo un 80% del año 2021. Generaliza bien en el 2021, y no adecuadamente con el resto de los años:
-* Test 2017: Coeficiente de determinación : 0.18
-* Test 2018: Coeficiente de determinación: 0.16
-* Test 2020 Coeficiente de determinación: 0.22
+**Pipeline PCA XGBRegressor Regression model**
+* Train Split 2021  Coefficient of Determinationn: 0.98
+* Test Split 2021  Coefficient of Determination: 0.91
+Only 80% of the year 2021 was used to train. It generalizes well with the 2021 year, and not adequately with the other years:
+* Test 2017:  Coefficient of Determination : 0.18
+* Test 2018:  Coefficient of Determination: 0.16
+* Test 2020  Coefficient of Determination: 0.22
 
 
-#### 2.4.2 CLASIFICACIÓN
+#### 2.4.2 CLASSIFICATION
 
-**Modelo Pipeline PCA k-Nearest Neighbors Classification**
+**Pipeline PCA k-Nearest Neighbours Classification model**
 * Train Split 2021 Accuracy: 0.88
 * Test Split 2021 Accuracy: 0.82
-Se les ha pasado en train tan sólo un 80% del año 2021. Generaliza con el resto de los años:
+Only 80% of the year 2021 was used to train. It generalizes well with the remaining years:
 * Test 2017 Accuracy: 0.77
 * Test 2018 Accuracy: 0.77
 * Test 2020 Accuracy: 0.77
 
-Se proporcionan en src el código de estoss modelos, los restantes se dejan en el directorio src/notebooks. 
+The code for these models is provided in src, the rest are left in the src/notebooks directory.
 
-En el directorio src/model se han volcado los 4 modelos principales. Para cada uno de ellos se han generado tres ficheros con el mismo formato de los generados en la segunda entrega, es decir: 
+The 4 main models have been dumped in the src/model directory. For each of them, three files have been generated with the same format as those generated in the second delivery, that is:
 
-        <modelname>: el modelo volcado con pickle
-        <modelname>.json: contiene un JSON con la descripción (según la 2da entrega). 
-        <modelname>.csv: contiene los datos de test para la variables independientes y dependiente.
+<modelname>: the model dumped with pickle
+        <modelname>.json: contains a JSON with the description (according to the 2nd delivery).
+        <modelname>.csv: contains the test data for the independent and dependent variables.
 
-En el directorio src/model se deja my_model (y sus 3 ficheros) que es el modelo elegido de **Pipeline con StandardScaler, PCA y DecissionTree Regression**. Se deja un fichero src/train.py que entrena este modelo elegido.
+In the src/model directory, my_model is left (with its 3 files), which is the model chosen for the Pipeline with StandardScaler, PCA and DecisionTree Regression. A src/train.py file is left that trains this chosen model.
 
-### 2.5 MODELOS USADOS PARA LA SEGMENTACiÓN
+### 2.5 MODELS USED FOR SEGMENTATION
 
-**Modelos KMeans Clustering**
+**KMeans Clustering models**
 
-Se hace una división de los cuantiles de la puntuación de los paises en cada uno de los SDGS (variables dependientes) y se detecta quien tiene mas paises Wealthy en su 1er (serán los SDGs mas relevantes) y 4to quantile (serán los SDGs menos relevantes). Recordar que los países que están en tienen la **categoria "wealthy" = 1 tienen mayor inversión en renovables (proxy aceptado por la comunidad científicaca del estado de avance del pais en “cambio climático y transición energética”)**. **La relevancia significa que ese SDG en cuestión contribuye mas al avance del país en “cambio climático y transición energética”**.
+A division of the quantiles of the countries' score is made for each of the SDGS (dependent variables). It is detected who are more wealthy countries in their 1st quantile (the most relevant SDGs) and 4th quantile (the least relevant SDGs). ). Remember that countries in the **"wealthy" category = 1 have greater investment in renewables (proxy accepted by the scientific community of the state of progress of the country in "climate change and energy transition")**. **Relevance means that the SDG in question contributes more to the country's progress in “climate change and energy transition”**.
 
-Los **Clusters 1 y Cluster 0 presentan 43% y 54% de wealthy countries**.
-* **Mas relevantes: 1 Quantile SDG1, SDG4, SDG7, SDG13, SDG3**.
-* **Menos Relevantes: 4 Quantile SDG14, SDG17, SDG12, SDG15**.
+**Clusters 1 and Cluster 0 present 43% and 54% of wealthy countries respectively**.
+* **The most relevant (1st Quantile): SDG1, SDG4, SDG7, SDG13, SDG3**.
+* **The least relevant (4th Quantile): SDG14, SDG17, SDG12, SDG15**.
 
-En los **Clusters 1, Cluster 2 y Cluster 2 se detecta**: 
-* **Mas relevante: SDG4**
-* **Menos relevante: SDG17**
+In **Clusters 1, Cluster 2 and Cluster 2 the following is observed**:
+* **The most relevant: SDG4**
+* **The least relevant: SDG17**
 
-Se pueden observar los detalles en la siguiente figura:
+The details can be seen in the following figure:
 <p align="center">
 <img src="./notebooks/images/Modelo_KMeans_Clustering.png" alt="drawing" align="center" width="650"/> 
 </p>
 
-### 2.5 MODELOS USADOS PARA EL ANÁLISIS DE COEFICIENTES Y DIRECCIÓN
+### 2.5 MMODELS USED FOR THE ANALYSIS OF COEFFICIENTS AND DIRECTION
 Se han utilizado los siguientes modelos:
 
-**Modelos Panel data (regresión)**
-* **¿PORQUÉ?** : usan algoritmos caja blanca adecuados para n individuos (países), donde los individuos y las variables “x” (ODSs) e “y” (“cambio climático y transición energética”) permanecen iguales a lo largo del tiempo.
-* **VENTAJAS**: reduce la colinealidad, captura la heterogeneidad no observable, reflejan la dinámica y causalidad de Granger (causa-efecto), etc.
-Dentro de esta categoria se han utilizado los siguientes modelos:
-* **Regresión Agrupada (Pooled Regression)**
-* **Efectos fijos (Fixed Effects - FE)**
-* **Efectos aleatorios (Random Effects - RE)**
+**Panel Data models (regression)**
+* **Why?** : they are suitable white box algorithms for n individuals (countries), where the individuals and the variables “x” (SDGs) and “y” (“climate change and energy transition”) remain the same over time.
+* **ADVANTAGES**: reduces collinearity, captures unobservable heterogeneity, reflects Granger dynamics and causality (cause-effect), etc. The following models have been used within this category:
+* **Pooled Regression**
+* **Fixed Effects (FE)**
+* **Random Effects (RE)**
 
-En nuestro caso, se violan las condiciones de (**Homocedasticidad**) y (**No autocorrelación**) por lo que no se recomienda la Regresión Agrupada. Las condiciones se han probado con una serie de tests diferentes. Para la condición **Homocedasticidad**, se usa el análisis gráfico. Para la **heteroscedasticidad** se utiliza el **test de White** y el **test de Breusch-Pagan**. Para la condición No autocorrelación, se realiza un **test de Durbin-Watson**.
+In our case, the (homoscedasticity) and (no autocorrelation) conditions are violated, so Pooled Regression is not recommended. Conditions have been tested with a number of different tests. For the **homoscedasticity** condition, graphical analysis is used. For **heteroskedasticity** condition, the **White** and **Breusch-Pagan** tests were used. For the **no autocorrelation** condition, a **Durbin-Watson** test is performed.
 
-Finalmente, el modelo des Efectos fijos es el más adecuado tras realizar el test de Test de Hausman. En este caso, se ha transformado logarítmicamente la variable dependiente. Por ello, si el coeficiente de la variable dependiente fuera significativo y tuviera un valor de 0,198, por cada aumento de una unidad en la variable independiente, nuestra variable dependiente aumenta aproximadamente un 21,9% %, calculado como (e^0,198) – 1) * 100 = 21,9%.
-
-Los coeficientes estadísticamente significativos se muestran en la siguiente figura:
+Finally, the Fixed Effects model is the most appropriate after performing the **Hausman** test. In this case, the dependent variable has been logarithmically transformed. Therefore, if the coefficient of the dependent variable were significant and had a value of 0.198, for each increase of one unit in the independent variable, our dependent variable would increase by approximately 21.9% %, calculated as (e^0.198) – 1) * 100 = 21.9%.
+         
+The statistically significant coefficients are shown in the following figure:
 <p align="center">
 <img src="./notebooks/images/Panel_Data_Coefficientes_Regression.png" alt="drawing" align="center" width="400"/>
 </p>
 
-**Modelo “RandomForest Regression y Modelo “XGBRegressor Regression””**
+**“Random Forest Regression” and “XGBRegressor Regression” models**
 
-Se ha examinado la feature importance y la permutation importance. Están alineados con los resultados obtenidos en previos métodos
+Feature importance and permutation importance have been examined. They are aligned with the results obtained in previous models.
 
-**Modelo “PCAs”**
+**“PCAs” model**
 
-Se observa como en el PC1 se agrupa SDG12 y SDG13 (0.55 de varianza explicada). Recordemos mantienen una dirección negativa sobre nuestro target.
+It is obsevrved SDG12 and SDG13 are grouped within PC1 (0.55 of explained variance). Let's remember they maintain a negative direction with our target.
 
-# 3.- Resultados y conclusiones
-## 3.1 TAREA DE PREDICCIÓN
-Es factible realizar modelos que predigan “cambio climático y transición energética” a partir de SDG. El reto global del “cambio climático y transición energética” es alcanzable.
+# 3.- Results and conclusions
+## 3.1 PREDICTION TASK
+It is feasible to make models to predict “climate change and energy transition” from SDGs. The global challenge of "climate change and energy transition" is achievable with such SDGs.
 
-## 3.2 AREA SEGMENTACIÓN, ANÁLISIS COEFICIENTES Y DIRECCIÓN
-El **SDG4 “Educación de Calidad”** es el Objetivo MAS RELEVANTE 
+## 3.2 SEGMENTATION, COEFFICIENT AND DIRECTION ANALYSIS
+**SDG4 "Quality Education"** is the MOST RELEVANT Objective 
 
-El **SDG17 “Alianzas para lograr los objetivos”** que consiste en movilizar recursos para desarrollar países subdesarrollados, tiene BAJA RELEVANCIA E INGENUIDAD!. Esto implica:
-* **“Gobernanza global imperfecta“**: no existe contrapesos a las desigualdades entre países desarrollados y en desarrollo.
-* Una **“trampa de los países no desarrollados”.
+**SDG17 "Partnerships to achieve the objectives"** which consists in mobilizing resources to develop underdeveloped countries, has LOW RELEVANCE AND INGENUITY!. This implies:
+* An **"imperfect global governance"**: there is no counterweight to the inequalities between developed and developing countries.
+* A **"trap for undeveloped countries"**.
 
-En el **SDG9 “Industria, innovación e infraestructura”** se observa:
-* Importancia de la **“aglomeración” industrial, clúster tecnológicos,** etc.
+**SDG9 "Industry, innovation and infrastructure"** shows:
+* The importance of the **industrial "agglomeration", technological cluster, etc**.
 
-En el **SDG12 “Producción y Consumo Responsable”** y **SDG13 “Acción por el Clima”** se oponen al **“cambio climático y transición energética”**. Esto implica:
-
-* La **necesidad de desvincular el SDG 12 y SDG 13 del modelo socioeconómico y ambiental actual** se basa en sistemas heredados de producción y consumo de combustibles fósiles. Ejemplos: la tasa de producción de plástico mundial basada en combustibles fósiles; los petro-estados y subsidios a los combustibles fósiles.
-* **“Falsa hipocresía“**: se puede invertir en “transición energética” y estar contaminando con combustibles fósiles mucho mas en el balance neto.
+**SDG12 "Responsible Production and Consumption"** and **SDG13 "Climate Action"**, they are opposed both with "climate change and energy transition". This implies:
+* The need to **decouple SDG 12 and SDG 13 from the current socioeconomic and environmental model**, which is based on legacy systems of production and consumption based on fossil fuels. Examples: the global plastic production rate based on fossil fuels; petro-states and fossil fuel subsidies.
+* **False hypocrisy"**: you can invest in "energy transition" and be polluting with fossil fuels much more in the total net balance.
 
 # 3. Bibliografía
 
@@ -186,4 +187,4 @@ En el **SDG12 “Producción y Consumo Responsable”** y **SDG13 “Acción por
 * *Sachs, J., Schmidt-Traub, G., Kroll, C., Lafortune, G., & Fuller, G. 2020. The sustainable development goals and COVID-19. Sustainable development report 2020. Cambridge: Cambridge University Press.*
 
 
-Espero que os guste, ¡gracias!.
+I hope you like it, thanks!.
