@@ -51,28 +51,27 @@ The models that have been used for each of these tasks are the following:
 ### 2.3 EDA
 Given the main tasks of our development (prediction, segmentation, analysis of the coefficients, and direction of the dependent variables), different regression, classification, variable reduction, and clustering models will be used. 
 Given the extensiveness of the project, the most relevant data and graphs are shown hereafter.
-1. **Balanced Data**: la variable target en el análisis de clasificación está balanceada. Se dicotomiza la variable target "generación no hidroeléctrica renovable per cápita" con la mediana, para diferenciar los países "wealthy" (valor 1 en el target) que tienen mayor inversión en renovables que los países "unwealthy" (valor 0 en el target). Nota: en los análisis de regresión se utiliza esta variable en su manera contínua.
-2. **Correlaciones**: las variables SDG15, SDG14 y SDG17 presentan una correlación < 0.2 con la variables target. Se realizan test para eliminarlas sin mejora significativa, y se decide mantienerlas para ver las interacciones con el resto de los ODSs. Los ODSs con mayor correlacion con la variable target son SDG9 = 0.46, SDG16 = 0.45, y SDG12 = -0.44. No se consideran muy altas.
-3. **Plots**: en la clasificación se detectan efectos significativos entre paises wealthy vs unwealthy con algunas de las variables dependientes. Las variables SDG1, SDG3, SDG4, SDG7, SDG9 y SDG16 presentan mas paises wealthy para sus valores altos, mientras que SDG13 y SDG3 presentan mas paises wealthy en sus valores bajos.
+1. **Balanced Data**: The target variable in the classification analysis is balanced. The target variable "renewable non-hydroelectric generation per capita" is dichotomized with the median, to differentiate "wealthy" countries (target value 1) that have greater investment in renewables than "unwealthy" countries (target value 0). Note: in the regression analysis this variable is used in its continuous form.
+4. **Correlations**: SDG15, SDG14 and SDG17 variables present a correlation < 0.2 with the target variables. Tests are carried out to eliminate them without significant improvement, and it is decided to keep them to see the interactions with the other SDGs. The SDGs with the highest correlation with the target variable are SDG9 = 0.46, SDG16 = 0.45, and SDG12 = -0.44. They are not considered very high. 
+8. **Plots**: significant effects are detected between wealthy vs. unwealthy countries with some of the dependent variables in the classification. SDG1, SDG3, SDG4, SDG7, SDG9 and SDG16 variables present more wealthy countries for their higher values, while SDG13 and SDG3 variables present more wealthy countries in their lower values.
 <p align="center">
 <img src="./notebooks/images/SDGs_en_Wealthy_Countries.png" alt="drawing" align="center" width="900"/>
 </p>
+4. **Data**: ranking and score data of the SDGs are collected for the different years. Scores present better data and capture the continuity of each of the SDGs.
+8. **Skewness**: data does not show high Skewness. Logarithmic transformations are performed, not presenting substantial improvement except in some variables, where logarithmic transformation was performed. 
+11. **Data escalation**: StandardScaler is applied in the clustering algorithms, ensembles and with the PCAs.
+12. **Metrics for classification**: Accuracy is used in classification algorithms, since data is balanced. The coefficient of determination of the prediction (score) is analyzed. The minimization of the **Mean Squared Error (MSE)** is sought, there are not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
+16. **Regularization**: **GridSearchCV** is used, combined with a massive hyperparameter evaluation with loops to facilitate the evaluation of metrics and regularization.
 
-4. **Datos**: se recogen datos de Ranking y Scores de los SDGs para los distintos años. Los datos Scores presentan mejores datos y capturan la continuidad de cada uno de los SDGs.
-5. **Skewness**: los datos no prentan una Skewness elevada. Se realizan transformaciones logaritmicas, no presentando mejora sustancial salvo en la variable y que se utiliza una transformacion logaritmica.
-6. **Escalados**: se aplica el StandardScaler en los algoritmos de clustering y con los PCAs.
-7. **Métricas para clasificación**: se usa el Accuracy en los algoritmos de clasificación, al estar los datos balanceados. Se analiza el Coeficiente de determinacion de la predicción (score) en las predicciones. Se busca la reduccion del **Mean Squared Error (MSE)** comparar los modelos y poner foco en los errores grandes, no existen muchos outliers (5) que puedan sugerir el uso del Mean Absolute Error (MAE). 
-8. **Regularización**: Se utiliza el **GridSearchCV** combinada con la técnica de evaluación masiva de parámetros con blucles para facilitar la evaluación de las métricas y regularización.
+#### 2.4.1 REGRESSION
 
-#### 2.4.1 REGRESIÓN
-
-**Modelo Pipeline PCA RandomForest Regression**
-* Train Split 2021 Coeficiente de determinación: 0.83
-* Test Split 2021 Coeficiente de determinación: 0.92
-Se les ha pasado en train tan sólo un 80% del año 2021. Generaliza con el resto de los años:
-* Test 2017 Coeficiente de determinación: 0.79
-* Test 2018 Coeficiente de determinación: 0.76
-* Test 2020 Coeficiente de determinación: 0.78
+**Pipeline PCA RandomForest Regression model**
+* Train Split 2021 Coefficient of Determination: 0.83
+* Test Split 2021 Coefficient of Determination: 0.92
+Only 80% of the year 2021 has passed by train. It generalizes with the other years:
+* Test 2017 Coefficient of Determination: 0.79
+* Test 2018 Coefficient of Determination: 0.76
+* Test 2020 Coefficient of Determination: 0.78
 
 **Modelo Pipeline PCA DecissionTree Regression**
 * Train Split 2021 Coeficiente de determinación: 1.0
