@@ -1,56 +1,57 @@
-# 1.- Descripción de proyecto
-### 1.1 Título de proyecto
-#### *"Conectando los Objetivos de Desarrollo Sostenible con el cambio climático y la transición energética"*
-### 1.2 Tema
-**El cambio climático y la transición energética** hacia una economía descarbonizada es uno de los **grandes desafíos (GD) mundiales** para garantizar que nuestro planeta sobreviva. Para abordar los GD de nuestro planeta, Naciones Unidas ha definido los **Objetivos de Desarrollo Sostenible (ODS)**, un conjunto de **17 objetivos globales**. Los gobiernos del mundo han acordado que estos ODS deben alcanzarse para 2030 *(Guterres, 2019)*.
-El conjunto de los 17 ODS se considera uno de los marcos más efectivos para traducir los GD en objetivos que pueden gestionarse para cada país. A pesar de esta visión integral, **existen ciertos condicionantes marcados por un modelo socioeconómico-ambiental y por la situación de los países, que permiten avanzar hacia el logro de algunos ODS sin lograr otros**.
+# 1.- Project description
+### 1.1 Project title
+#### *"Connecting the Sustainable Development Goals with climate change and the energy transition"*
+### 1.2 Theme
+**Climate change and the energy transition** towards a decarbonized economy is one of the **world's great challenges (GC)** to ensure that our planet survives. To address the GC of our planet, the United Nations has defined the **Sustainable Development Goals (SDGs)**, a set of **17 global objectives**. The governments of the world have agreed that these SDGs must be achieved by 2030 *(Guterres, 2019)*. 
+The set of 17 SDGs is considered one of the most effective frameworks for translating the GCs into manageable targets for each country. Despite this comprehensive vision, **there are certain conditions marked by a socioeconomic-environmental model and by the situation of the countries, which allow progress towards the achievement of some SDGs without achieving others**.
 
-### 1.3 Objetivo
- **El objetivo de este proyecto es estudiar la relación de los ODS con el cambio climático y la transición energética**.
+### 1.3 Objective
+ **The objective of this project is to study the relationship of the SDGs with climate change and the energy transition**.
  
-### 1.4 Datasets y fuentes alternativas de datos
-Concentramos el análisis en datos de **137 países** a nivel mundial para los **años 2017, 2018, 2019 y 2020** sobre los que analizaremos principalmente los **17 ODS** en su relación con el **cambio climático y la transición energética (9384 observaciones)**. 
-Como datos se usan:
-* Los ranking de esos 137 países según los **[17 ODS del Informe de Desarrollo Sostenible 2020](https://unstats.un.org/sdgs/dataportal) (Sachs et al., 2020)**. 
-* Según la **Agencia Internacional de la Energía**, la energía renovable contribuye en un 80% al cambio climático y la transición energética. Por ello, se usa como variable de estudio la inversión en energía renovable (ER) en proyectos totalmente nuevos, y usamos como **proxy la generación no hidroeléctrica renovable per cápita en unidades de kWh/cápita**. Esta medida se emplea ampliamente en la literatura (Baldwin, Carley, Brass y MacLean, 2016; Carley, 2009; Romano y Scandurra, 2014; Romano, Scandurra, Carfora y Fodor, 2017). **Los datos provienen de la base de datos de la [Agencia Internacional de la Energía](https://www.iea.org/data-and-statistics)**.
-* Tres posibles **variables cualitativas: país, región y nivel de desarrollo país** según lo define la base de datos de los [Indicadores de Desarrollo Mundial (WDI) del Banco Mundial](https://databank.bancomundial.org/source/world-development-indicators).
+### 1.4 Datasets and alternative data sources
+We focus the analysis on data from **137 countries** worldwide for the years **2017, 2018, 2019 and 2020**, on which we will mainly analyse the **17 SDGs** in their relationship with **climate change and the energy transition (9,384 observations)**. How data is used:
 
-# 2.- Workflow de Machine Learning
-### 2.1 Definición del Problema
-Para dar respuesta  **al objetivo de este proyecto es estudiar la relación de los ODS con el cambio climático y la transición energética** se han realizado tres tareas principales, que agrupan tres proyectos en uno, de la sigueiente manera:
- 1. **PREDICCIÓN**: que da respuesta a la pregunta... ¿Existen modelos que permitan predecir el “cambio climático y transición energética” a partir de los ODS?
- 2. **SEGMENTACIÓN DE LOS ODS**: que da respuesta a la pregunta... ¿ Cuáles son los ODS mas relevantes?
- 3. **ANÁLISIS DE LOS COEFICIENTES Y DIRECCIÓN DE LAS VARIABLES DEPENDIENTES**: que da respuesta a la pregunta... ¿Ayuda un ODSs a alcanzar o impedir el “cambio climático y la transición energética” ?
-Los modelos utilizados se adecuan a las tareas principales de nuestro desarrollo (predicción, segmentación y análisis de los coeficientes y dirección de las variables dependientes).
+* The ranking of these 137 countries according to the **[17 SDGs of the 2020 Sustainable Development Report](https://unstats.un.org/sdgs/dataportal) (Sachs et al., 2020)**.
+* According to the **International Energy Agency**, renewable energy contributes 80% to climate change and the energy transition. Therefore, investment in renewable energy (RE) in greenfield projects is used as the study variable, and we use **renewable non-hydroelectric generation per capita in units of kWh/capita as a proxy**. This measure is widely used in the literature *(Baldwin, Carley, Brass, & MacLean, 2016; Carley, 2009; Romano & Scandurra, 2014; Romano, Scandurra, Carfora, & Fodor, 2017)*. The data comes from the database of the [International Energy Agency](https://www.iea.org/data-and-statistics)**.
+* Three possible **qualitative variables: country, region, and country level of development** as defined by the [World Bank's World Development Indicators (WDI) database](https://databank.bancomundial.org/source/world-development-indicators).
 
-Los modelos que se han utilizado para cada una de estas tareas son los siguientes:
+# 2.- Machine Learning Workflow
+### 2.1 Definition of the Problem
+To respond to the **objective of this project is to study the relationship of the SDGs with climate change and the energy transition**, three main tasks have been carried out, which group three projects into one, as follows:
 
-#### 2.1.1 Predicción
-* Modelos Pipeline PCA RandomForest Regression
-* Modelos Pipeline PCA DecissionTree Regression
-* Modelo Pipeline PCA XGBRegressor Regression
-* Modelo Pipeline PCA KNN Classification
+1. **PREDICTION**: which answers the question... Are there models that make it possible to predict "climate change and energy transition" based on the SDGs?
+2. **SEGMENTATION OF THE SDGs**: which answers the question... What are the most relevant SDGs?
+3. **ANALYSIS OF THE COEFFICIENTS AND DIRECTION OF THE DEPENDENT VARIABLES**: which answers the question... Does an SDG help to achieve or prevent "climate change and the energy transition"? 
+The models used are adapted to the main tasks of our development (prediction, segmentation, analysis of the coefficients, and direction of the dependent variables).
 
-#### 2.1.2 Segmentación
-* Modelos KMeans Clustering
+The models that have been used for each of these tasks are the following:
 
-#### 2.1.3 Análisis de Coeficientes y dirección
-* Modelos Lineal Polinomial Regression 
-* Modelos Support Vector Regression 
-* Modelos Decission Trees Regression
-* Modelos PCAs
-* Modelo Panel Data Regression
+#### 2.1.1 Prediction
+* Pipeline PCA RandomForest Regression model
+* Pipeline PCA DecisionTree Regression model
+* Pipeline PCA XGBRegressor Regression model
+* Pipeline PCA KNN Classification model
 
-### 2.2 Recogida y limpieza de datos
-1. **Fuente de datos**: se han cargado los datos de las fuentes indicadas anteriormente.
-2. **Outliers**: los outliers no se eliminan corresponden principalmente a los países nórdicos y Alemania, potencialmente mas concienciados con el cambio climático y la transición energética.
-3. **Missings**: se aplica imputaciones basadas en una regresión lineal, respecto año anterior y posterior.
-4. **Anomalías y errores**: se controlan los valores y estan en rangos adecuados.
+#### 2.1.2 Segmentation
+* KMeans Clustering models
+
+#### 2.1.3 Analysis of Coefficients and direction
+* Linear Polynomial Regression models 
+* Support Vector Regression model
+* Decision Trees Regression model
+* PCA models
+* Panel Data Regression models
+
+### 2.2 Data collection and cleaning
+1. **Data Source**: data has been loaded from the sources listed above.
+2. **Outliers**: outliers are not eliminated, they correspond mainly to the Nordic countries and Germany, more aware of climate change and the energy transition.
+3. **Missing data**: imputations based on a linear regression are applied, with respect to the previous and subsequent years.
+4. **Anomalies and errors**: values are controlled, and they are in adequate ranges.
 
 ### 2.3 EDA
-Dadas las tareas principales de nuestro desarrollo (predicción, segmentación y análisis de los coeficientes y dirección de las variables dependientes) se utilizarán distintos modelos de regresión, clasificación, reducción de variables y clustering. 
-Dado lo extenso del proyecto a continuación de detallan los datos más relevantes encontrados y se proporcionan algunas imagenes de elementos de interés.
-1. **Datos Balanceados**: la variable target en el análisis de clasificación está balanceada. Se dicotomiza la variable target "generación no hidroeléctrica renovable per cápita" con la mediana, para diferenciar los países "wealthy" (valor 1 en el target) que tienen mayor inversión en renovables que los países "unwealthy" (valor 0 en el target). Nota: en los análisis de regresión se utiliza esta variable en su manera contínua.
+Given the main tasks of our development (prediction, segmentation, analysis of the coefficients, and direction of the dependent variables), different regression, classification, variable reduction, and clustering models will be used. 
+Given the extensiveness of the project, the most relevant data and graphs are shown hereafter.
+1. **Balanced Data**: la variable target en el análisis de clasificación está balanceada. Se dicotomiza la variable target "generación no hidroeléctrica renovable per cápita" con la mediana, para diferenciar los países "wealthy" (valor 1 en el target) que tienen mayor inversión en renovables que los países "unwealthy" (valor 0 en el target). Nota: en los análisis de regresión se utiliza esta variable en su manera contínua.
 2. **Correlaciones**: las variables SDG15, SDG14 y SDG17 presentan una correlación < 0.2 con la variables target. Se realizan test para eliminarlas sin mejora significativa, y se decide mantienerlas para ver las interacciones con el resto de los ODSs. Los ODSs con mayor correlacion con la variable target son SDG9 = 0.46, SDG16 = 0.45, y SDG12 = -0.44. No se consideran muy altas.
 3. **Plots**: en la clasificación se detectan efectos significativos entre paises wealthy vs unwealthy con algunas de las variables dependientes. Las variables SDG1, SDG3, SDG4, SDG7, SDG9 y SDG16 presentan mas paises wealthy para sus valores altos, mientras que SDG13 y SDG3 presentan mas paises wealthy en sus valores bajos.
 <p align="center">
