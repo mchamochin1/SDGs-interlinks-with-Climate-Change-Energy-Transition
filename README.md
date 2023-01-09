@@ -52,16 +52,16 @@ The models that have been used for each of these tasks are the following:
 Given the main tasks of our development (prediction, segmentation, analysis of the coefficients, and direction of the dependent variables), different regression, classification, variable reduction, and clustering models will be used. 
 Given the extensiveness of the project, the most relevant data and graphs are shown hereafter.
 1. **Balanced Data**: The target variable in the classification analysis is balanced. The target variable "renewable non-hydroelectric generation per capita" is dichotomized with the median, to differentiate "wealthy" countries (target value 1) that have greater investment in renewables than "unwealthy" countries (target value 0). Note: in the regression analysis this variable is used in its continuous form.
-4. **Correlations**: SDG15, SDG14 and SDG17 variables present a correlation < 0.2 with the target variables. Tests are carried out to eliminate them without significant improvement, and it is decided to keep them to see the interactions with the other SDGs. The SDGs with the highest correlation with the target variable are SDG9 = 0.46, SDG16 = 0.45, and SDG12 = -0.44. They are not considered very high. 
-8. **Plots**: significant effects are detected between wealthy vs. unwealthy countries with some of the dependent variables in the classification. SDG1, SDG3, SDG4, SDG7, SDG9 and SDG16 variables present more wealthy countries for their higher values, while SDG13 and SDG3 variables present more wealthy countries in their lower values.
+2. **Correlations**: SDG15, SDG14 and SDG17 variables present a correlation < 0.2 with the target variables. Tests are carried out to eliminate them without significant improvement, and it is decided to keep them to see the interactions with the other SDGs. The SDGs with the highest correlation with the target variable are SDG9 = 0.46, SDG16 = 0.45, and SDG12 = -0.44. They are not considered very high. 
+3. **Plots**: significant effects are detected between wealthy vs. unwealthy countries with some of the dependent variables in the classification. SDG1, SDG3, SDG4, SDG7, SDG9 and SDG16 variables present more wealthy countries for their higher values, while SDG13 and SDG3 variables present more wealthy countries in their lower values.
 <p align="center">
 <img src="./notebooks/images/SDGs_en_Wealthy_Countries.png" alt="drawing" align="center" width="900"/>
 </p>
 4. **Data**: ranking and score data of the SDGs are collected for the different years. Scores present better data and capture the continuity of each of the SDGs.
-8. **Skewness**: data does not show high Skewness. Logarithmic transformations are performed, not presenting substantial improvement except in some variables, where logarithmic transformation was performed. 
-11. **Data escalation**: StandardScaler is applied in the clustering algorithms, ensembles and with the PCAs.
-12. **Metrics for classification**: Accuracy is used in classification algorithms, since data is balanced. The coefficient of determination of the prediction (score) is analyzed. The minimization of the **Mean Squared Error (MSE)** is sought, there are not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
-16. **Regularization**: **GridSearchCV** is used, combined with a massive hyperparameter evaluation with loops to facilitate the evaluation of metrics and regularization.
+5. **Skewness**: data does not show high Skewness. Logarithmic transformations are performed, not presenting substantial improvement except in some variables, where logarithmic transformation was performed.
+6. **Data escalation**: StandardScaler is applied in the clustering algorithms, ensembles and with the PCAs.
+7. **Metrics for classification**: Accuracy is used in classification algorithms, since data is balanced. The coefficient of determination of the prediction (score) is analyzed. The minimization of the **Mean Squared Error (MSE)** is sought, there are not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
+8. **Regularization**: **GridSearchCV** is used, combined with a massive hyperparameter evaluation with loops to facilitate the evaluation of metrics and regularization.
 
 #### 2.4.1 REGRESSION
 
