@@ -19,7 +19,7 @@ We focus the analysis on data from **137 countries** worldwide for the years **2
 ### 2.1 Definition of the Problem
 Three main tasks have been carried out to respond our objectives:
 
-1. **PREDICTION**: which answers the questions... can SGDs achieve"climate change and energy transition"?. Are models able to predict "climate change and energy transition" from SDGs?.
+1. **PREDICTION**: which answers the questions... can SGDs achieve "climate change and energy transition"?. Are models able to predict "climate change and energy transition" from SDGs?.
 3. **SEGMENTATION OF THE SDGs**: which answers the question... what are the most relevant SDGs?.
 4. **ANALYSIS OF COEFFICIENTS AND DIRECTION OF DEPENDENT VARIABLES**: which answers the question... does any SDG help to achieve or prevent "climate change and the energy transition"?.
 
@@ -58,10 +58,10 @@ Different regression, classification, variable reduction, and clustering models 
 <img src="./notebooks/images/SDGs_en_Wealthy_Countries.png" alt="drawing" align="center" width="900"/>
 </p>
 
-4. **Data**: SDGs ranking and score are collected for the different years. Scores present better results and capture better continuity for each SDG.
+4. **Data**: SDGs rankings and scores are collected for the different years. Scores present better results and capture better continuity for each SDG.
 5. **Skewness**: data does not show high Skewness. Logarithmic transformations are performed, not presenting substantial improvement for most variables. Logarithmic transformation was performed when was deemed appropriate.
 6. **Data escalation**: StandardScaler is applied for clustering algorithms, ensembles and PCAs.
-7. **Metrics for classification**: Accuracy is used in classification algorithms, since data is balanced. The coefficient of determination for the prediction (score) is analyzed. The minimization of the **Mean Squared Error (MSE)** is sought, as there were not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
+7. **Metrics for classification**: Accuracy is used in classification algorithms since data is balanced. The coefficient of determination for the prediction (score) is analysed. The minimization of the **Mean Squared Error (MSE)** is sought, as there were not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
 8. **Regularization**: **GridSearchCV** is used, combined with a massive hyperparameter evaluation with loops, to facilitate the evaluation of metrics and regularization.
 
 #### 2.4.1 REGRESSION
@@ -84,10 +84,10 @@ Only 80% of the year 2021 was used to train. It generalizes in an appropriate ma
 * Test 2020 Coefficient of Determination: 0.19
 
 **Pipeline PCA XGBRegressor Regression model**
-* Train Split 2021  Coefficient of Determinationn: 0.98
+* Train Split 2021  Coefficient of Determination: 0.98
 * Test Split 2021  Coefficient of Determination: 0.91
 Only 80% of the year 2021 was used to train. It generalizes in an appropriate manner with the 2021 year, and not adequately with the other years:
-* Test 2017:  Coefficient of Determination : 0.18
+* Test 2017:  Coefficient of Determination: 0.18
 * Test 2018:  Coefficient of Determination: 0.16
 * Test 2020  Coefficient of Determination: 0.22
 
@@ -135,7 +135,7 @@ These details can be seen in the following figure:
 The following models have been used:
 
 **Panel Data models (regression)**
-* **Why?** : they are suitable white box algorithms for n individuals (countries), where the individuals and the variables “x” (SDGs) and “y” (“climate change and energy transition”) remain the same over time.
+* **Why?**: they are suitable white box algorithms for n individuals (countries), where the individuals and the variables “x” (SDGs) and “y” (“climate change and energy transition”) remain the same over time.
 * **ADVANTAGES**: reduces collinearity, captures unobservable heterogeneity, reflects Granger dynamics and causality (cause-effect), etc. 
 
 The following models have been used within this category:
@@ -143,7 +143,7 @@ The following models have been used within this category:
 * **Fixed Effects (FE)**
 * **Random Effects (RE)**
 
-In our case, the **homoscedasticity** and **non-autocorrelation** conditions are violated, so Pooled Regression is not recommended. Conditions have been tested with a number of different tests. For the **homoscedasticity** condition, graphical analysis is used. For **heteroskedasticity** condition, the **White** and **Breusch-Pagan** tests were used. For the **non-autocorrelation** condition, a **Durbin-Watson** test was performed.
+In our case, the **homoscedasticity** and **non-autocorrelation** conditions are violated, so Pooled Regression is not recommended. Conditions have been tested with several tests. For the **homoscedasticity** condition, graphical analysis is used. For **heteroskedasticity** condition, the **White** and **Breusch-Pagan** tests were used. For the **non-autocorrelation** condition, a **Durbin-Watson** test was performed.
 
 Finally, we concluded the **Fixed Effects model was the most appropriate** after performing the **Hausman** test. In this case, the dependent variable has been logarithmically transformed. This means, if the coefficient of the dependent variable was significant and had a value of 0.198, for each increase of one unit in the independent variable, our dependent variable would increase by approximately 21.9% %, calculated as (e^0.198) – 1) * 100 = 21.9%.
          
@@ -167,7 +167,7 @@ It is feasible to make models to predict “climate change and energy transition
 ## 3.2 SEGMENTATION, COEFFICIENT AND DIRECTION ANALYSIS
 **SDG4 "Quality Education"** is the MOST RELEVANT Objective 
 
-**SDG17 "Partnerships to achieve the objectives"** which consists in mobilizing resources to develop underdeveloped countries, has LOW RELEVANCE AND INGENUITY!. This implies:
+**SDG17 "Partnerships to achieve the objectives"** which consists in mobilizing resources to develop underdeveloped countries, has LOW RELEVANCE AND INGENUITY. This implies:
 * An **"imperfect global governance"**: there is no counterweight to the inequalities between developed and developing countries.
 * A **"trap for undeveloped countries"**.
 
