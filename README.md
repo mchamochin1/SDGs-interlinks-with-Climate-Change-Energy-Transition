@@ -165,7 +165,7 @@ SDG12 and SDG13 are grouped within PC1 (0.55 of explained variance), they had a 
 It is feasible to make models to predict “climate change and energy transition” from SDGs. Thus, the global challenge of "climate change and energy transition" is achievable with stated SDGs.
 
 ## 3.2 SEGMENTATION, COEFFICIENT AND DIRECTION ANALYSIS
-**SDG4 "Quality Education"** is the MOST RELEVANT Objective 
+**SDG4 "Quality Education"** is the MOST RELEVANT goal. 
 
 **SDG17 "Partnerships to achieve the objectives"** which consists in mobilizing resources to develop underdeveloped countries, has LOW RELEVANCE AND INGENUITY. This implies:
 * An **"imperfect global governance"**: there is no counterweight to the inequalities between developed and developing countries.
