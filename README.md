@@ -64,6 +64,8 @@ Different regression, classification, variable reduction, and clustering models 
 7. **Metrics for classification**: Accuracy is used in classification algorithms since data is balanced. The coefficient of determination for the prediction (score) is analysed. The minimization of the **Mean Squared Error (MSE)** is sought, as there were not many outliers (5) that could suggest the use of the Mean Absolute Error (MAE).
 8. **Regularization**: **GridSearchCV** is used, combined with a massive hyperparameter evaluation with loops, to facilitate the evaluation of metrics and regularization.
 
+### 2.4 MODELS USED FOR PREDICTION
+
 #### 2.4.1 REGRESSION
 
 **Pipeline PCA RandomForest Regression model**
